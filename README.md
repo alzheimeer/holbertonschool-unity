@@ -20,6 +20,8 @@ This repository contains example projects using c# programming languages. In the
 2. [0x02. C# - Data Structures: Arrays, Lists, Dictionaries](https://github.com/alzheimeer/holbertonschool-csharp/tree/master/0x02-csharp-arrays_lists_dictionaries) 04-16-2020 - 1 Day
 * [0x00. Unity - User Interface](https://github.com/alzheimeer/holbertonschool-unity/tree/master/0x00-unity-user_interface) 04-20-2020 - 1 Day
 * [0x01. Unity - Unity Concepts](https://github.com/alzheimeer/holbertonschool-unity/tree/master/0x01-unity_concepts) 04-20-2020 - 4 Day
+* [0x02. Unity - Scripting](https://github.com/alzheimeer/holbertonschool-unity/tree/master/0x02. Unity - Scripting) 05-11-2020 - 4 Day
+* [0x03. Unity - UI](https://github.com/alzheimeer/holbertonschool-unity/tree/master/0x03. Unity - UI) 05-19-2020 - 4 Day
 3. [0x03. C# - Csharp-hashset_stack_queue_linkedlist](https://github.com/alzheimeer/holbertonschool-csharp/tree/master/0x03-csharp-hashset_stack_queue_linkedlist) 04-27-2020 - 1 Day
 4. [0x04. C# - C# - Exceptions](https://github.com/alzheimeer/holbertonschool-csharp/tree/master/0x04-csharp-exceptions) 04-28-2020 - 1 Day
 5. [0x05. C# - Structs, Enumerations](https://github.com/alzheimeer/holbertonschool-csharp/tree/master/0x05-csharp-structs_enums) 04-28-2020 - 1 Day 
