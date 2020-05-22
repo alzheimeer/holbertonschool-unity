@@ -6,7 +6,7 @@ using System.Collections;
 public class PlayerController : MonoBehaviour
 {
     public Rigidbody rb;
-
+    public Joystick joystick;
     public float speed = 2000f;
     private int score = 0;
     public int health = 5;
@@ -45,19 +45,19 @@ public class PlayerController : MonoBehaviour
     void FixedUpdate ()
     {
         
-        if (Input.GetKey("d") || Input.GetKey(KeyCode.RightArrow))
+        if (Input.GetKey("d") || Input.GetKey(KeyCode.RightArrow) || joystick.Horizontal >= .2f)
         {
             rb.AddForce(speed * Time.deltaTime, 0, 0);
         }
-        if (Input.GetKey("a") || Input.GetKey(KeyCode.LeftArrow))
+        if (Input.GetKey("a") || Input.GetKey(KeyCode.LeftArrow) || joystick.Horizontal <= -.2f)
         {
             rb.AddForce(-speed * Time.deltaTime, 0, 0);
         }
-        if (Input.GetKey("w") || Input.GetKey(KeyCode.UpArrow))
+        if (Input.GetKey("w") || Input.GetKey(KeyCode.UpArrow) || joystick.Vertical >= .2f)
         {
             rb.AddForce(0, 0, speed * Time.deltaTime);
         }
-        if (Input.GetKey("s") || Input.GetKey(KeyCode.DownArrow))
+        if (Input.GetKey("s") || Input.GetKey(KeyCode.DownArrow) || joystick.Vertical <= -.2f)
         {
             rb.AddForce(0, 0, -speed * Time.deltaTime);
         }
