@@ -5,7 +5,7 @@ public class PlayerController : MonoBehaviour
     public float speed = 6.0f;
     public float rotateSpeed = 6.0f;
     private float jumpSpeed = 8.0f;
-    private float gravity = 20.0f;
+    private float gravity = 9.0f;
 
     private Vector3 moveDirection = Vector3.zero;
     public CharacterController playermao;
