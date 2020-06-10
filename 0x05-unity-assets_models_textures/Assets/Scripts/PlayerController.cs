@@ -8,12 +8,19 @@ public class PlayerController : MonoBehaviour
     private float gravity = 9.0f;
 
     private Vector3 moveDirection = Vector3.zero;
+    private Vector3 startPosition;
+    private Transform player;
+
     public CharacterController playermao;
     private int jumps;
+    
+
 
     private void Start()
     {
         playermao = GetComponent<CharacterController>();
+        player = GetComponent<Transform>();
+        startPosition = player.position;
     }
     private void Update()
     {
@@ -37,5 +44,10 @@ public class PlayerController : MonoBehaviour
         }
         moveDirection.y -= gravity * Time.deltaTime;
         playermao.Move(moveDirection * Time.deltaTime);
+
+        if (player.position.y < -20)
+        {
+           player.position = new Vector3(startPosition.x, startPosition.y + 15, startPosition.z);
+        }
     }    
 }
