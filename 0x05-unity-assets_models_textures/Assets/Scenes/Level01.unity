@@ -4801,6 +4801,7 @@ GameObject:
   - component: {fileID: 869821541}
   - component: {fileID: 869821540}
   - component: {fileID: 869821539}
+  - component: {fileID: 869821543}
   m_Layer: 0
   m_Name: WinFlag
   m_TagString: Untagged
@@ -4882,6 +4883,20 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &869821543
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 869821538}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 05256a12bca914a489a815c850fd5846, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  timerText: {fileID: 1241279599}
+  playerT: {fileID: 76752236}
 --- !u!1 &875551285 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 100000, guid: b160645b1533e21479de8e69292af997,
@@ -9713,11 +9728,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: efe042be672ffa9428202a34e97494f6, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: -0.000000059605
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: efe042be672ffa9428202a34e97494f6, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -1.04
+      value: -1.02
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: efe042be672ffa9428202a34e97494f6, type: 3}
       propertyPath: m_LocalPosition.z
@@ -9755,9 +9770,13 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: efe042be672ffa9428202a34e97494f6, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.54364
+      objectReference: {fileID: 0}
     - target: {fileID: 400002, guid: efe042be672ffa9428202a34e97494f6, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.000000059605
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 400002, guid: efe042be672ffa9428202a34e97494f6, type: 3}
       propertyPath: m_LocalPosition.y
@@ -9769,7 +9788,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 400004, guid: efe042be672ffa9428202a34e97494f6, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.000000059605
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 400004, guid: efe042be672ffa9428202a34e97494f6, type: 3}
       propertyPath: m_LocalPosition.y
