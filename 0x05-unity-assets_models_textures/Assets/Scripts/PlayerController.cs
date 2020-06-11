@@ -5,7 +5,7 @@ public class PlayerController : MonoBehaviour
     public float speed = 6.0f;
     public float rotateSpeed = 6.0f;
     private float jumpSpeed = 8.0f;
-    private float gravity = 9.0f;
+    public float gravity = 9.0f;
 
     private Vector3 moveDirection = Vector3.zero;
     private Vector3 startPosition;
@@ -44,7 +44,7 @@ public class PlayerController : MonoBehaviour
         }
         moveDirection.y -= gravity * Time.deltaTime;
         playermao.Move(moveDirection * Time.deltaTime);
-
+        //if fall restart from sky
         if (player.position.y < -20)
         {
            player.position = new Vector3(startPosition.x, startPosition.y + 15, startPosition.z);
