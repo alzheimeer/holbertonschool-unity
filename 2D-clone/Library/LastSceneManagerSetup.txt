@@ -1,0 +1,4 @@
+sceneSetups:
+- path: C:/Users/Mauricio/v/SMB-clone/Assets/Scenes/World 1-1.unity
+  isLoaded: 1
+  isActive: 1
