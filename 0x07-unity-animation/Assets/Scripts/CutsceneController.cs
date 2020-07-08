@@ -5,17 +5,34 @@ using UnityEngine;
 public class CutsceneController : MonoBehaviour
 {
     // Start is called before the first frame update
-    public Camera camtwo;
-    void Start()
+    Animator anim;
+    public GameObject mainCam;
+    public GameObject sCam;
+    public GameObject player;
+    public GameObject timerCanvas;
+
+    void Awake()
     {
-        camtwo = GameObject.Find("Main Camera").GetComponent<Camera>();
+        Debug.Log("awake de cutscenecontroller");
+        anim = GetComponent<Animator>();
+        
     }
 
-    // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown("q")) camtwo.enabled = false;
-        if (Input.GetKeyDown("z")) camtwo.enabled = true;
 
+        if (transform.position == new Vector3(0f, 2.5f, -6.25f))
+        {
+            Debug.Log("finaliza animacion");
+            mainCam.SetActive(true);
+            sCam.SetActive(false);
+            player.SetActive(true);
+            timerCanvas.SetActive(true);
+            player.gameObject.GetComponent<PlayerController>().enabled = true;
+        }
+            Debug.Log("update de cutscenecontroller");
     }
+
+   
+
 }

@@ -3714,7 +3714,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4653a85880b9c1a47929f3228184312d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  camtwo: {fileID: 0}
+  mainCam: {fileID: 1354192962}
+  sCam: {fileID: 687096351}
+  player: {fileID: 76752236}
+  timerCanvas: {fileID: 734339203}
 --- !u!1001 &690527198
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4082,6 +4085,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 129f0517e7d826844b87c8c15735d4c9, type: 3}
+--- !u!1 &734339203 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6543076431848219478, guid: 7720922556dabea4e9cf146a0cc1cfad,
+    type: 3}
+  m_PrefabInstance: {fileID: 6543076432863851925}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &737768003
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -12434,6 +12443,11 @@ PrefabInstance:
     - target: {fileID: 3026177309582129883, guid: 2f314e98b538a944588c72e89cd7c7ff,
         type: 3}
       propertyPath: m_LocalScale.z
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6364409032431529528, guid: 2f314e98b538a944588c72e89cd7c7ff,
+        type: 3}
+      propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8039827662406774386, guid: 2f314e98b538a944588c72e89cd7c7ff,
