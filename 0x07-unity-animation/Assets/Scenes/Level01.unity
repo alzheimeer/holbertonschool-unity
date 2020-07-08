@@ -702,7 +702,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 76752236}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3f3f31ffd66164a40ace425bf7275ba5, type: 3}
   m_Name: 
@@ -3611,6 +3611,7 @@ GameObject:
   - component: {fileID: 687096353}
   - component: {fileID: 687096352}
   - component: {fileID: 687096355}
+  - component: {fileID: 687096356}
   m_Layer: 0
   m_Name: CutsceneCamera
   m_TagString: Untagged
@@ -3650,7 +3651,7 @@ Camera:
     height: 1
   near clip plane: 0.3
   far clip plane: 1000
-  field of view: 60
+  field of view: 26.991467
   orthographic: 0
   orthographic size: 5
   m_Depth: 0
@@ -3675,13 +3676,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 687096351}
-  m_LocalRotation: {x: -0.0015897612, y: 0.4442853, z: 0.0032056705, w: 0.8958782}
-  m_LocalPosition: {x: -6.814, y: 1, z: 212.386}
+  m_LocalRotation: {x: -0.04747158, y: 0.50212246, z: 0.0146616995, w: 0.8633682}
+  m_LocalPosition: {x: -9, y: 7.6, z: 209}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: -0.326, y: 52.755, z: 0.24800001}
+  m_LocalEulerAnglesHint: {x: -5.5490003, y: 60.426003, z: -1.2870001}
 --- !u!95 &687096355
 Animator:
   serializedVersion: 3
@@ -3701,6 +3702,19 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &687096356
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 687096351}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4653a85880b9c1a47929f3228184312d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  camtwo: {fileID: 0}
 --- !u!1001 &690527198
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -12581,6 +12595,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: TimerCanvas
+      objectReference: {fileID: 0}
+    - target: {fileID: 6543076431848219478, guid: 7720922556dabea4e9cf146a0cc1cfad,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7720922556dabea4e9cf146a0cc1cfad, type: 3}
