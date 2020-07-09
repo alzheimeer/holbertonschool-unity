@@ -13,9 +13,10 @@ public class PlayerController : MonoBehaviour
     private Vector3 direction = Vector3.zero;
     private Vector3 startPosition;
  
-
     public float turnSmoothTime = 0.1f;
     float turnSmoothVelocity;
+
+    Animator anim;
 
 
     private void Start()
@@ -68,6 +69,14 @@ public class PlayerController : MonoBehaviour
         if (cam.position.y < -20)
         {
            cam.position = new Vector3(startPosition.x, startPosition.y + 15, startPosition.z);
+        }
+        if (Input.GetKey("w") || Input.GetKey("a") || Input.GetKey("s") || Input.GetKey("d"))
+        {
+            anim.SetBool("Run", true);
+        }
+        else
+        {
+            anim.SetBool("Run",false);
         }
     }    
 }
