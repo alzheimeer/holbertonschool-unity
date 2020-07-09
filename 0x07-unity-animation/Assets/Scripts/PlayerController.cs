@@ -24,16 +24,25 @@ public class PlayerController : MonoBehaviour
         controller = GetComponent<CharacterController>();
         cam = GetComponent<Transform>();
         startPosition = cam.position;
-       
+        anim = GetComponentInChildren<Animator>();
+
     }
     private void Update()
     {
         float horizontal = Input.GetAxisRaw("Horizontal");
         float vertical = Input.GetAxisRaw("Vertical");
-
+        
+        Debug.Log(cam.position.y);
         if (controller.isGrounded)
         {
+            //Control  of animations
             Debug.Log("TIERRA ON");
+            anim.SetBool("ground",true);
+            anim.SetBool("falling",false);
+            anim.SetBool("Run", false);
+
+
+
 
             direction = new Vector3(horizontal, 0, vertical).normalized;
             float targetAngle = Mathf.Atan2(direction.x, direction.z) * Mathf.Rad2Deg + cam.eulerAngles.y;
@@ -47,6 +56,8 @@ public class PlayerController : MonoBehaviour
             if(Input.GetButtonDown("Jump"))
             {
                 direction.y = jumpSpeed;
+                anim.SetTrigger("Jump");
+                anim.SetBool("ground",false);
             }
             
         }
@@ -68,11 +79,18 @@ public class PlayerController : MonoBehaviour
         //if fall restart from sky
         if (cam.position.y < -20)
         {
-           cam.position = new Vector3(startPosition.x, startPosition.y + 15, startPosition.z);
+            anim.SetBool("ground", false);
+            anim.SetBool("falling", true);
+            anim.SetBool("Run", false);
+            cam.position = new Vector3(startPosition.x, startPosition.y + 15, startPosition.z);
         }
         if (Input.GetKey("w") || Input.GetKey("a") || Input.GetKey("s") || Input.GetKey("d"))
         {
-            anim.SetBool("Run", true);
+           
+            Debug.Log("RUN ON");
+            Debug.Log(vertical);
+            Debug.Log(horizontal);
+            anim.SetBool("Run",true);
         }
         else
         {
