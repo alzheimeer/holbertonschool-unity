@@ -2288,7 +2288,6 @@ GameObject:
   - component: {fileID: 3432390373367597913}
   - component: {fileID: 3432390373367597892}
   - component: {fileID: 3432390373367597915}
-  - component: {fileID: 3432390373367597914}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -2418,25 +2417,6 @@ MonoBehaviour:
   rotateSpeed: 6
   gravity: 9
   turnSmoothTime: 0.1
---- !u!95 &3432390373367597914
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3432390373367597912}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: d6e7b5563c5fdef4ab2749f87020f310, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &3432390373398270349
 GameObject:
   m_ObjectHideFlags: 0
