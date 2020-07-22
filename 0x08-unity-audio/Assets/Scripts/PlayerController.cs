@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.Audio;
 
 public class PlayerController : MonoBehaviour
 {
@@ -18,6 +19,7 @@ public class PlayerController : MonoBehaviour
 
     Animator anim;
 
+    public AudioSource audioSource;
 
     private void Start()
     {
@@ -25,7 +27,7 @@ public class PlayerController : MonoBehaviour
         cam = GetComponent<Transform>();
         startPosition = cam.position;
         anim = GetComponentInChildren<Animator>();
-
+        audioSource = GetComponent<AudioSource>();
     }
     private void Update()
     {
