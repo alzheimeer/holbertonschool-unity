@@ -3,17 +3,22 @@ using UnityEngine.Audio;
 
 public class PlayerController : MonoBehaviour
 {
+
+
+    //CharacterController.Move
     public CharacterController controller;
-    public float speed = 12f;
-    public float rotateSpeed = 6.0f;
+    public float speed = 6f;
     private float jumpSpeed = 9f;
     public float gravity = 18f;
-    private Transform cam;
+    private Vector3 moveDirection = Vector3.zero;
+    public GameObject reference;
 
+
+    public float rotateSpeed = 60;
+    
     Vector3 velocity;
-    private Vector3 direction = Vector3.zero;
     private Vector3 startPosition;
- 
+    Transform cam;
     public float turnSmoothTime = 0.1f;
     float turnSmoothVelocity;
 
@@ -23,18 +28,19 @@ public class PlayerController : MonoBehaviour
 
     private void Start()
     {
+        anim = GetComponentInChildren<Animator>();
         controller = GetComponent<CharacterController>();
         cam = GetComponent<Transform>();
         startPosition = cam.position;
-        anim = GetComponentInChildren<Animator>();
         audioSource = GetComponent<AudioSource>();
     }
     private void Update()
     {
         float horizontal = Input.GetAxisRaw("Horizontal");
         float vertical = Input.GetAxisRaw("Vertical");
-        
-        Debug.Log(cam.position.y);
+
+
+
         if (controller.isGrounded)
         {
             //Control  of animations
@@ -43,39 +49,51 @@ public class PlayerController : MonoBehaviour
             anim.SetBool("falling",false);
             anim.SetBool("Run", false);
 
+            //movement and change of exes with camera and mouse
+           
+            moveDirection = new Vector3(horizontal, 0, vertical);
+            moveDirection = transform.TransformDirection(moveDirection);
+            Quaternion target = Quaternion.Euler(horizontal, reference.transform.eulerAngles.y, vertical) ;
+            transform.rotation = Quaternion.Slerp(transform.rotation, target, Time.deltaTime * rotateSpeed);
+            
 
 
-
-            direction = new Vector3(horizontal, 0, vertical).normalized;
-            float targetAngle = Mathf.Atan2(direction.x, direction.z) * Mathf.Rad2Deg + cam.eulerAngles.y;
-            float angle = Mathf.SmoothDampAngle(transform.eulerAngles.y, targetAngle, ref turnSmoothVelocity, turnSmoothTime);
-            transform.rotation = Quaternion.Euler(0f, angle, 0f);
-
-            direction = cam.right * direction.x + cam.forward * direction.z;
-            direction.y = 0f;
-            direction *= speed;
-
-            if(Input.GetButtonDown("Jump"))
+            if (horizontal != 0 || vertical != 0)
             {
-                direction.y = jumpSpeed;
-                anim.SetTrigger("Jump");
-                anim.SetBool("ground",false);
+                if (Input.GetButtonDown("Jump"))
+                {
+                    moveDirection.x *= speed / 1.5f;
+                    moveDirection.z *= speed / 1.5f;
+                    moveDirection.y = jumpSpeed;
+                    anim.SetTrigger("Jump");
+                }
+                else {
+                    moveDirection.x *= speed;
+                    moveDirection.z *= speed;
+                }
+                anim.SetBool("Run", true);
+                
             }
+            else
+            {
+                if (Input.GetButtonDown("Jump"))
+                {
+                    moveDirection.y = jumpSpeed;
+                    anim.SetTrigger("Jump");
+                }
+                anim.SetBool("Run", false);
+            }
+                
+
             
         }
         else
         {
-            Debug.Log("TIERRA OFF");
-            direction = new Vector3(horizontal, direction.y, vertical);
-            direction = transform.TransformDirection(direction);
-
-
-            direction.x *= speed;
-            direction.z *= speed;
-           
+                anim.SetBool("ground", false);
         }
-        direction.y -= gravity * Time.deltaTime;
-        controller.Move(direction * Time.deltaTime);
+        
+        moveDirection.y -= gravity * Time.deltaTime;
+        controller.Move(moveDirection * Time.deltaTime);
 
 
         //if fall restart from sky
@@ -86,17 +104,6 @@ public class PlayerController : MonoBehaviour
             anim.SetBool("Run", false);
             cam.position = new Vector3(startPosition.x, startPosition.y + 15, startPosition.z);
         }
-        if (Input.GetKey("w") || Input.GetKey("a") || Input.GetKey("s") || Input.GetKey("d"))
-        {
-           
-            Debug.Log("RUN ON");
-            Debug.Log(vertical);
-            Debug.Log(horizontal);
-            anim.SetBool("Run",true);
-        }
-        else
-        {
-            anim.SetBool("Run",false);
-        }
+        
     }    
 }
